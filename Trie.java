@@ -39,14 +39,30 @@ public class Trie{
         return curr.eow==true;
 
     }
-    public static void main(String args[]){
-        String words[] ={ "the", "a","there","their","any","thee"};
-        for(int i=0;i<words.length;i++){
-            insert(words[i]);
-        }
 
-        System.out.println(search("thee"));
-        System.out.println(search("thor"));
+    public static boolean startsWith(String prefix){  //O(L)
+        Node curr = root;
+
+        for(int i=0;i<prefix.length();i++){
+            int idx=prefix.charAt(i)-'a';
+            if(root.children[idx]==null){
+                return false;
+            }
+            curr=curr.children[idx];
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        String words[]={"apple","app","mango","man","woman"};
+        String prefix1= "app";
+        S
+        // String words[] ={ "the", "a","there","their","any","thee"};
+        // for(int i=0;i<words.length;i++){
+        //     insert(words[i]);
+        // }
+
+        // System.out.println(search("thee"));
+        // System.out.println(search("thor"));
  
     }
 }
